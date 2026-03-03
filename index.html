@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENSI GB XIT PRO | EXCLUSIVE V4.2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff1f1f;
+            --accent: #ff4b2b;
+            --pix: #32bcad;
+            --bg: #030303;
+            --card-bg: #0d0d0d;
+            --glass: rgba(255, 255, 255, 0.03);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(180deg, rgba(255, 31, 31, 0.2) 0%, rgba(0,0,0,0) 100%);
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: 5px;
+            text-shadow: 0 0 20px var(--primary);
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* --- DASHBOARD DO GERADOR --- */
+        .panel-header { text-align: left; margin-bottom: 30px; border-left: 4px solid var(--primary); padding-left: 15px; }
+        .panel-header h2 { font-size: 1.8rem; text-transform: uppercase; margin: 0; }
+        .panel-header p { color: #888; margin: 5px 0 0; }
+
+        .gen-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .gen-item {
+            background: var(--card-bg);
+            border: 1px solid #1a1a1a;
+            padding: 20px;
+            border-radius: 12px;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .gen-item:hover { border-color: var(--primary); box-shadow: 0 0 15px rgba(255, 31, 31, 0.2); }
+        .gen-item label { font-size: 0.65rem; color: var(--primary); text-transform: uppercase; font-weight: 900; display: block; margin-bottom: 10px; }
+        .gen-item .value { font-family: 'Orbitron', sans-serif; font-size: 1.6rem; color: #fff; }
+
+        .btn-action {
+            background: #fff;
+            color: #000;
+            border: none;
+            padding: 22px;
+            border-radius: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn-action:hover { background: var(--primary); color: #fff; box-shadow: 0 0 30px var(--primary); }
+
+        /* --- PAINEL DE PAGAMENTO VIP --- */
+        .vip-checkout {
+            background: linear-gradient(145deg, #111, #050505);
+            border: 1px solid #222;
+            border-radius: 24px;
+            padding: 50px;
+            margin-top: 60px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .vip-features { text-align: left; }
+        .vip-features h3 { font-size: 2.2rem; margin-bottom: 20px; font-family: 'Orbitron', sans-serif; }
+        .feature-list { list-style: none; padding: 0; }
+        .feature-list li { margin-bottom: 15px; display: flex; align-items: center; gap: 10px; color: #ccc; }
+        .feature-list li::before { content: '▶'; color: var(--primary); font-size: 0.8rem; }
+
+        .payment-box {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px dashed #333;
+            text-align: center;
+        }
+
+        .price-tag { font-size: 3.5rem; font-weight: 900; margin: 10px 0; color: #fff; }
+        .pix-badge {
+            background: var(--pix);
+            color: #000;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 900;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+            color: #fff;
+            text-decoration: none;
+            padding: 20px;
+            border-radius: 12px;
+            display: block;
+            font-weight: 900;
+            font-size: 1.2rem;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+        }
+
+        .btn-whatsapp:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4); }
+
+        footer { padding: 60px 0; color: #444; font-size: 0.8rem; text-align: center; border-top: 1px solid #111; }
+
+        @media (max-width: 850px) {
+            .vip-checkout { grid-template-columns: 1fr; padding: 30px; }
+            .logo { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="logo">SENSI X PRO</h1>
+    </header>
+
+    <div class="container">
+        
+        <div class="panel-header">
+            <h2>Algoritmo de Calibração</h2>
+            <p>Sistemas detectados: <span style="color:var(--primary)">V4.2 STABLE</span></p>
+        </div>
+
+        <div class="gen-grid">
+            <div class="gen-item"><label>Geral</label><div class="value" id="v-geral">--</div></div>
+            <div class="gen-item"><label>Red Dot (200% Max)</label><div class="value" id="v-red">--</div></div>
+            <div class="gen-item"><label>Mira 2x (200% Max)</label><div class="value" id="v-2x">--</div></div>
+            <div class="gen-item"><label>Mira 4x (200% Max)</label><div class="value" id="v-4x">--</div></div>
+            <div class="gen-item"><label>DPI sugerida</label><div class="value" id="v-dpi">--</div></div>
+            <div class="gen-item"><label>Supressor</label><div class="value" id="v-sup">--</div></div>
+            <div class="gen-item"><label>Vel. Ponteiro</label><div class="value" id="v-pont">--</div></div>
+            <div class="gen-item"><label>Taxa Att.</label><div class="value" id="v-taxa">--</div></div>
+        </div>
+
+        <button class="btn-action" onclick="gerarSensi()">Executar Calibração</button>
+
+        <div class="vip-checkout">
+            <div class="vip-features">
+                <div class="pix-badge">💰 PAGAMENTO VIA PIX</div>
+                <h3>PACOTE VIP FULL HS</h3>
+                <ul class="feature-list">
+                    <li>Database Privada com as Sensibilidades dos MESTRES.</li>
+                    <li>Configurações Anti-Pinar para armas AR e SMG.</li>
+                    <li>Suporte Individual para Calibração de DPI.</li>
+                    <li>Acesso Vitalício + Atualizações Mensais.</li>
+                    <li><strong>Bônus:</strong> Guia de regedit, xit e geradores supremos Mobile (Safe).</li>
+                </ul>
+            </div>
+
+            <div class="payment-box">
+                <p style="color: #888; margin-bottom: 0;">VALOR EXCLUSIVO</p>
+                <div class="price-tag">R$ 19,90</div>
+                <p style="font-size: 0.8rem; color: #25d366; margin-bottom: 25px;">● Liberação automática após o Pix</p>
+                
+                <a href="https://wa.me/5511976193174?text=Olá! Quero pagar no PIX para liberar o Pacote VIP" class="btn-whatsapp" target="_blank">
+                    LIBERAR ACESSO AGORA
+                </a>
+                
+                <p style="margin-top: 15px; font-size: 0.7rem; color: #555;">Transação Segura via WhatsApp</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        &copy; 2024-2026 SENSI X PRO - SYSTEM CALIBRATION. TODAS AS CONFIGURAÇÕES SÃO OTIMIZADAS PARA ANDROID E IOS.
+    </footer>
+
+    <script>
+        function gerarSensi() {
+            // Valores acima de 100 para miras profissionais
+            const highRange = () => Math.floor(Math.random() * (200 - 105 + 1) + 105);
+            
+            // Preenchimento dos dados
+            document.getElementById('v-geral').innerText = Math.floor(Math.random() * (100 - 94 + 1) + 94);
+            document.getElementById('v-red').innerText = highRange();
+            document.getElementById('v-2x').innerText = highRange();
+            document.getElementById('v-4x').innerText = highRange();
+            document.getElementById('v-dpi').innerText = Math.floor(Math.random() * (960 - 410 + 1) + 410);
+            document.getElementById('v-sup').innerText = "ATIVADO";
+            document.getElementById('v-pont').innerText = "MAX";
+            document.getElementById('v-taxa').innerText = "120Hz/144Hz";
+
+            // Estilo do botão ao clicar
+            const btn = document.querySelector('.btn-action');
+            btn.innerText = "CALIBRAÇÃO CONCLUÍDA!";
+            btn.style.background = "#ff1f1f";
+            btn.style.color = "#fff";
+            
+            setTimeout(() => {
+                btn.innerText = "Executar Calibração";
+                btn.style.background = "#fff";
+                btn.style.color = "#000";
+            }, 3000);
+        }
+    </script>
+
+</body>
+</html>
